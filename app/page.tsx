@@ -362,7 +362,7 @@ export default function TamatamaShoten() {
                       </div>
                     </div>
                     <ShelfCase colors={[['#a9794f','#7d6b86','#5d6b4f','#6e5a44'],['#5d6b86','#b59b6b','#86643f','#7d6b86'],['#6e7256','#a9794f','#5d6b86','#6e5a44']]} bg="#38291a" />
-                    <div style={{ marginTop:'7px', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)', whiteSpace:'nowrap' }}>店主のおすすめ</div>
+                    <div style={{ marginTop:'7px', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)', lineHeight:1.5 }}>店主の<br />おすすめ</div>
                   </button>
 
                   <button onClick={() => { setCatKey('bun'); go('category'); }} style={{ flex:1, maxWidth:'90px', background:'none', border:'none', padding:0, cursor:'pointer' }}>
