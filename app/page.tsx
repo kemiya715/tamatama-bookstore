@@ -319,6 +319,13 @@ export default function TamatamaShoten() {
                   <div style={{ position:'absolute', top:'50%', left:0, right:0, height:'3px', background:'#4a3826', transform:'translateY(-50%)' }} />
                 </div>
                 <div style={{ position:'absolute', right:'6px', top:'14%', width:'152px', height:'240px', background:'linear-gradient(158deg, rgba(214,234,246,.22) 0%, rgba(214,234,246,.06) 38%, transparent 64%)', transform:'rotate(7deg)', transformOrigin:'top right', pointerEvents:'none' }} />
+                <div style={{ position:'absolute', left:'44px', top:'7%', width:'80px', height:'94px', borderRadius:'2px', background:'linear-gradient(180deg,#9cc8e6 0%,#bcdcef 52%,#e4f1f6 100%)', boxShadow:'0 0 30px 12px rgba(168,206,232,.3), inset 0 0 0 3px #4a3826', overflow:'hidden' }}>
+                  <div style={{ position:'absolute', left:'8px', top:'18px', width:'32px', height:'11px', background:'rgba(255,255,255,.92)', borderRadius:'8px', filter:'blur(1.5px)' }} />
+                  <div style={{ position:'absolute', right:'7px', top:'42px', width:'26px', height:'9px', background:'rgba(255,255,255,.82)', borderRadius:'7px', filter:'blur(1.5px)' }} />
+                  <div style={{ position:'absolute', left:'50%', top:0, bottom:0, width:'3px', background:'#4a3826', transform:'translateX(-50%)' }} />
+                  <div style={{ position:'absolute', top:'50%', left:0, right:0, height:'3px', background:'#4a3826', transform:'translateY(-50%)' }} />
+                </div>
+                <div style={{ position:'absolute', left:'6px', top:'14%', width:'152px', height:'240px', background:'linear-gradient(202deg, rgba(214,234,246,.22) 0%, rgba(214,234,246,.06) 38%, transparent 64%)', transform:'rotate(-7deg)', transformOrigin:'top left', pointerEvents:'none' }} />
 
                 {tone === 'night' && (
                   <div style={{ position:'absolute', top:0, left:0, right:0, height:'26%', overflow:'hidden' }}>
@@ -355,7 +362,7 @@ export default function TamatamaShoten() {
                       </div>
                     </div>
                     <ShelfCase colors={[['#a9794f','#7d6b86','#5d6b4f','#6e5a44'],['#5d6b86','#b59b6b','#86643f','#7d6b86'],['#6e7256','#a9794f','#5d6b86','#6e5a44']]} bg="#38291a" />
-                    <div style={{ marginTop:'7px', textAlign:'center', fontFamily:'var(--serif)', fontSize:'11px', letterSpacing:'.04em', color:'var(--ink,#ece3d4)', whiteSpace:'nowrap' }}>店主のおすすめ</div>
+                    <div style={{ marginTop:'7px', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)', whiteSpace:'nowrap' }}>店主のおすすめ</div>
                   </button>
 
                   <button onClick={() => { setCatKey('bun'); go('category'); }} style={{ flex:1, maxWidth:'90px', background:'none', border:'none', padding:0, cursor:'pointer' }}>
@@ -406,8 +413,6 @@ export default function TamatamaShoten() {
                     <div style={{ marginTop:'7px', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)' }}>暮らし</div>
                   </button>
 
-                  <LeafDecoration side="left" />
-                  <LeafDecoration side="right" />
                 </div>
 
                 {/* floor items */}
