@@ -59,7 +59,7 @@ const CAT_META = [
   { key:'keeper', name:'店主のおすすめ', en:"keeper's picks", photo:'ginkgo',      note:'ジャンルを問わず、いま店主が手わたしたい本を。迷ったら、まずはこの棚から。' },
   { key:'bun',    name:'文学',          en:'literature',     photo:'forest-bench', note:'物語と、ことば。何度も棚に戻ってくる本たち。' },
   { key:'shizen', name:'自然',          en:'nature',         photo:'karst',        note:'星、山、森、川。津野の自然とつながる本。' },
-  { key:'shakai', name:'社会',          en:'society',        photo:'mist',         note:'人と世界、学びと思索をめぐる本。' }
+  { key:'shakai', name:'暮らし',         en:'daily life',     photo:'mist',         note:'人と世界、学びと思索をめぐる本。' }
 ];
 
 const TSUNO_THEMES = [
@@ -400,7 +400,7 @@ export default function TamatamaShoten() {
                       <div style={{ position:'absolute', left:'50%', bottom:'13px', width:'6px', height:'4px', border:'1.5px solid #2a201a', borderTop:'none', borderLeft:'none', borderRadius:'0 0 6px 0' }} />
                     </div>
                     <ShelfCase colors={[['#86643f','#7a5a52','#6b5e4a','#8a6b4a'],['#736455','#86643f','#7a5a52',''],['#6b5e4a','#8a6b4a','#86643f','#736455']]} bg="#34281a" />
-                    <div style={{ marginTop:'7px', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)' }}>社会</div>
+                    <div style={{ marginTop:'7px', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)' }}>暮らし</div>
                   </button>
 
                   <PlantDecoration side="left" />
