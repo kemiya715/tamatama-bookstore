@@ -362,7 +362,7 @@ export default function TamatamaShoten() {
                       </div>
                     </div>
                     <ShelfCase colors={[['#a9794f','#7d6b86','#5d6b4f','#6e5a44'],['#5d6b86','#b59b6b','#86643f','#7d6b86'],['#6e7256','#a9794f','#5d6b86','#6e5a44']]} bg="#38291a" />
-                    <div style={{ marginTop:'7px', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)', lineHeight:1.5 }}>店主の<br />おすすめ</div>
+                    <div style={{ marginTop:'7px', height:'36px', display:'flex', alignItems:'center', justifyContent:'center', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)', lineHeight:1.5 }}>店主の<br />おすすめ</div>
                   </button>
 
                   <button onClick={() => { setCatKey('bun'); go('category'); }} style={{ flex:1, maxWidth:'90px', background:'none', border:'none', padding:0, cursor:'pointer' }}>
@@ -377,7 +377,7 @@ export default function TamatamaShoten() {
                       </div>
                     </div>
                     <ShelfCase colors={[['#5a3b46','#3f4a63','#4a4a6a','#6e5a44'],['#3f4a63','#5a3b46','#5d5a6e','#4a4a6a'],['#4a4a6a','#6e5a44','#5a3b46','#3f4a63']]} bg="#34261a" />
-                    <div style={{ marginTop:'7px', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)' }}>文学</div>
+                    <div style={{ marginTop:'7px', height:'36px', display:'flex', alignItems:'center', justifyContent:'center', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)' }}>文学</div>
                   </button>
 
                   <button onClick={() => { setCatKey('shizen'); go('category'); }} style={{ flex:1, maxWidth:'90px', background:'none', border:'none', padding:0, cursor:'pointer' }}>
@@ -391,7 +391,7 @@ export default function TamatamaShoten() {
                       </div>
                     </div>
                     <ShelfCase colors={[['#4f6048','#5f6e80','#6e7256','#5d6b4f'],['#5d6b86','#5d6b4f','#76795e','#4f6048'],['#6e7256','#4f6048','#5f6e80','#5d6b4f']]} bg="#2d3326" />
-                    <div style={{ marginTop:'7px', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)' }}>自然</div>
+                    <div style={{ marginTop:'7px', height:'36px', display:'flex', alignItems:'center', justifyContent:'center', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)' }}>自然</div>
                   </button>
 
                   <button onClick={() => { setCatKey('shakai'); go('category'); }} style={{ flex:1, maxWidth:'90px', background:'none', border:'none', padding:0, cursor:'pointer' }}>
@@ -410,7 +410,7 @@ export default function TamatamaShoten() {
                       <div style={{ position:'absolute', left:'50%', bottom:'13px', width:'6px', height:'4px', border:'1.5px solid #2a201a', borderTop:'none', borderLeft:'none', borderRadius:'0 0 6px 0' }} />
                     </div>
                     <ShelfCase colors={[['#86643f','#7a5a52','#6b5e4a','#8a6b4a'],['#736455','#86643f','#7a5a52',''],['#6b5e4a','#8a6b4a','#86643f','#736455']]} bg="#34281a" />
-                    <div style={{ marginTop:'7px', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)' }}>暮らし</div>
+                    <div style={{ marginTop:'7px', height:'36px', display:'flex', alignItems:'center', justifyContent:'center', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)' }}>暮らし</div>
                   </button>
 
                 </div>
