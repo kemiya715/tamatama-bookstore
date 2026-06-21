@@ -587,20 +587,6 @@ export default function TamatamaShoten() {
                         </button>
                       ))}
                     </div>
-                    <div style={{ paddingBottom:'30px' }}>
-                      {activeShelf.books.map((b, i) => (
-                        <button key={i} onClick={() => setBook(b)} style={{ display:'flex', width:'100%', gap:'14px', alignItems:'center', textAlign:'left', cursor:'pointer', background:'none', border:'none', borderTop:'1px solid var(--line,rgba(236,227,212,.1))', padding:'13px 28px' }}>
-                          <span style={{ flex:'none', width:'34px', height:'48px', borderRadius:'1px', background:b.spineColor, boxShadow:'0 4px 8px -3px rgba(0,0,0,.6)', display:'flex', alignItems:'center', justifyContent:'center' }}>
-                            <span style={{ writingMode:'vertical-rl', fontFamily:'var(--serif)', fontSize:'7px', color:'rgba(255,255,255,.8)', maxHeight:'40px', overflow:'hidden', paddingTop:'3px' }}>{b.title}</span>
-                          </span>
-                          <span style={{ flex:1, minWidth:0 }}>
-                            <span style={{ display:'block', fontFamily:'var(--serif)', fontSize:'14.5px', letterSpacing:'.03em', color:'var(--ink,#ece3d4)', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{b.title}</span>
-                            <span style={{ display:'block', marginTop:'2px', fontFamily:"'Zen Kaku Gothic New',sans-serif", fontSize:'10px', letterSpacing:'.04em', color:'var(--dim,#9b9081)' }}>{b.author}</span>
-                          </span>
-                          <span style={{ flex:'none', fontFamily:"'Zen Kaku Gothic New',sans-serif", fontSize:'9px', letterSpacing:'.08em', color:b.statusColor }}>{b.status}</span>
-                        </button>
-                      ))}
-                    </div>
                   </>
                 )}
               </div>
