@@ -117,15 +117,18 @@ function ShelfCase({ colors, bg }: { colors: string[][], bg: string }) {
   );
 }
 
-function PlantDecoration({ side }: { side: 'left' | 'right' }) {
+function LeafDecoration({ side }: { side: 'left' | 'right' }) {
+  const flip = side === 'right';
   return (
-    <div style={{ position:'absolute', [side]:'18px', top:'-66px', width:'42px', textAlign:'center' }}>
-      <div style={{ width:'1.5px', height:'13px', background:'rgba(0,0,0,.45)', margin:'0 auto' }} />
-      <div style={{ position:'relative', width:'28px', height:'13px', margin:'0 auto', background:'linear-gradient(180deg,#6a5238,#3a2c1d)', borderRadius:'3px 3px 12px 12px' }}>
-        <div style={{ position:'absolute', left:'2px', top:'-3px', width:'7px', height:'14px', background:'#5e6b4a', borderRadius:'60% 40% 50% 50%', transform:'rotate(-18deg)' }} />
-        <div style={{ position:'absolute', right:'2px', top:'-3px', width:'7px', height:'16px', background:'#56684a', borderRadius:'40% 60% 50% 50%', transform:'rotate(16deg)' }} />
-        <div style={{ position:'absolute', left:'10px', top:'-5px', width:'8px', height:'18px', background:'#657456', borderRadius:'50%' }} />
-      </div>
+    <div style={{ position:'absolute', [side]:'14px', bottom:'10px', width:'36px', height:'48px', pointerEvents:'none', transform: flip ? 'scaleX(-1)' : undefined }}>
+      {/* stem */}
+      <div style={{ position:'absolute', bottom:0, left:'17px', width:'1.5px', height:'28px', background:'linear-gradient(180deg,#5a6b42,#3a4a28)', borderRadius:'1px' }} />
+      {/* main leaf */}
+      <div style={{ position:'absolute', bottom:'18px', left:'4px', width:'28px', height:'20px', background:'linear-gradient(135deg,#6b7a4f,#4e6038)', borderRadius:'80% 20% 80% 20% / 60% 40% 60% 40%', transform:'rotate(-20deg)', opacity:.88 }} />
+      {/* second leaf */}
+      <div style={{ position:'absolute', bottom:'28px', left:'10px', width:'20px', height:'14px', background:'linear-gradient(135deg,#7a8a5a,#5a6b42)', borderRadius:'80% 20% 80% 20% / 60% 40% 60% 40%', transform:'rotate(30deg)', opacity:.75 }} />
+      {/* midrib */}
+      <div style={{ position:'absolute', bottom:'20px', left:'16px', width:'1px', height:'14px', background:'rgba(255,255,255,.18)', borderRadius:'1px', transform:'rotate(-20deg)' }} />
     </div>
   );
 }
@@ -403,8 +406,8 @@ export default function TamatamaShoten() {
                     <div style={{ marginTop:'7px', textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)' }}>暮らし</div>
                   </button>
 
-                  <PlantDecoration side="left" />
-                  <PlantDecoration side="right" />
+                  <LeafDecoration side="left" />
+                  <LeafDecoration side="right" />
                 </div>
 
                 {/* floor items */}
