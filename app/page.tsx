@@ -268,11 +268,6 @@ export default function TamatamaShoten() {
         <div style={{ position:'relative', width:'390px', height:'968px', maxHeight:'calc(100vh - 18px)', borderRadius:'46px', overflow:'hidden', background:'var(--bg,#13100c)', boxShadow:'0 40px 90px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.04), inset 0 0 0 1px rgba(255,255,255,.03)', color:'var(--ink,#ece3d4)' }}>
 
           {/* status bar */}
-          <div style={{ position:'absolute', top:0, left:0, right:0, height:'44px', zIndex:60, display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 26px', fontFamily:"'Cormorant Garamond',serif", fontSize:'14px', letterSpacing:'.04em', color:'var(--ink,#ece3d4)', pointerEvents:'none' }}>
-            <span style={{ fontVariantNumeric:'tabular-nums', opacity:.85 }}>{ambience.time}</span>
-            <span style={{ fontSize:'11px', letterSpacing:'.18em', opacity:.5, fontFamily:"'Zen Kaku Gothic New',sans-serif" }}>TSUNO</span>
-            <span style={{ opacity:.7, fontSize:'12px' }}>●●● ▢</span>
-          </div>
 
           {/* ENTRY */}
           {screen === 'entry' && (
