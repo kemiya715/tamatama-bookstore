@@ -262,6 +262,9 @@ export default function TamatamaShoten() {
   const firstShelfId = apiShelves[0]?.id;
   const today = firstShelfId ? (shelfBooks[firstShelfId]?.[0] ?? null) : null;
 
+  const allBooks = Object.values(shelfBooks).flat();
+  const floorBook = allBooks.length ? allBooks[Math.floor(tick / 3) % allBooks.length] : null;
+
   const cssVars = { ...th, '--serif': serif } as unknown as React.CSSProperties;
 
   return (
@@ -318,14 +321,12 @@ export default function TamatamaShoten() {
                   <div style={{ position:'absolute', left:'50%', top:0, bottom:0, width:'3px', background:'#4a3826', transform:'translateX(-50%)' }} />
                   <div style={{ position:'absolute', top:'50%', left:0, right:0, height:'3px', background:'#4a3826', transform:'translateY(-50%)' }} />
                 </div>
-                <div style={{ position:'absolute', right:'6px', top:'14%', width:'152px', height:'240px', background:'linear-gradient(158deg, rgba(214,234,246,.22) 0%, rgba(214,234,246,.06) 38%, transparent 64%)', transform:'rotate(7deg)', transformOrigin:'top right', pointerEvents:'none' }} />
                 <div style={{ position:'absolute', left:'44px', top:'7%', width:'80px', height:'94px', borderRadius:'2px', background:'linear-gradient(180deg,#9cc8e6 0%,#bcdcef 52%,#e4f1f6 100%)', boxShadow:'0 0 30px 12px rgba(168,206,232,.3), inset 0 0 0 3px #4a3826', overflow:'hidden' }}>
                   <div style={{ position:'absolute', left:'8px', top:'18px', width:'32px', height:'11px', background:'rgba(255,255,255,.92)', borderRadius:'8px', filter:'blur(1.5px)' }} />
                   <div style={{ position:'absolute', right:'7px', top:'42px', width:'26px', height:'9px', background:'rgba(255,255,255,.82)', borderRadius:'7px', filter:'blur(1.5px)' }} />
                   <div style={{ position:'absolute', left:'50%', top:0, bottom:0, width:'3px', background:'#4a3826', transform:'translateX(-50%)' }} />
                   <div style={{ position:'absolute', top:'50%', left:0, right:0, height:'3px', background:'#4a3826', transform:'translateY(-50%)' }} />
                 </div>
-                <div style={{ position:'absolute', left:'6px', top:'14%', width:'152px', height:'240px', background:'linear-gradient(202deg, rgba(214,234,246,.22) 0%, rgba(214,234,246,.06) 38%, transparent 64%)', transform:'rotate(-7deg)', transformOrigin:'top left', pointerEvents:'none' }} />
 
                 {tone === 'night' && (
                   <div style={{ position:'absolute', top:0, left:0, right:0, height:'26%', overflow:'hidden' }}>
@@ -415,24 +416,57 @@ export default function TamatamaShoten() {
 
                 </div>
 
-                {/* floor items */}
-                <div style={{ position:'absolute', left:0, right:0, bottom:'4%', height:'64px', pointerEvents:'none' }}>
-                  <div style={{ position:'absolute', left:'50%', bottom:'3px', transform:'translateX(-50%)', width:'188px', height:'36px', borderRadius:'50%', background:'radial-gradient(closest-side, rgba(158,96,74,.36), rgba(120,72,56,.14) 66%, transparent)' }} />
-                  <div style={{ position:'absolute', left:'50%', bottom:'8px', transform:'translateX(-50%)', width:'150px', height:'22px', borderRadius:'50%', background:'repeating-radial-gradient(circle at 50% 50%, rgba(214,180,130,.2) 0 4px, transparent 4px 8px)', opacity:.7 }} />
-                  <div style={{ position:'absolute', left:'50%', bottom:'11px', transform:'translateX(-74px)', width:'54px' }}>
-                    {[{c:'linear-gradient(90deg,#7a5a52,#8a6658)',r:'-2deg'},{c:'linear-gradient(90deg,#5d6b4f,#6b7a5b)',r:'1.5deg',w:'48px'},{c:'linear-gradient(90deg,#6e5a44,#7e6850)',r:'0'},{c:'linear-gradient(90deg,#5f5a6e,#6c6680)',r:'-1deg',w:'44px'}].map((b,i) => (
-                      <div key={i} style={{ height:'7px', ...(i>0?{marginTop:'1px'}:{}), ...(b.w ? {width:b.w}:{}), background:b.c, borderRadius:'1px 2px 2px 1px', boxShadow:'inset 2px 0 0 rgba(255,255,255,.16)', transform:`rotate(${b.r})` }} />
-                    ))}
-                  </div>
-                  <div style={{ position:'absolute', left:'50%', bottom:'9px', transform:'translateX(16px)', width:'46px', height:'26px' }}>
-                    <div style={{ position:'absolute', bottom:0, left:0, width:'46px', height:'20px', background:'linear-gradient(180deg,#7c726a,#5f574f)', borderRadius:'50%' }} />
-                    <div style={{ position:'absolute', bottom:'1px', left:'28px', width:'22px', height:'9px', background:'#857a70', borderRadius:'50%', transform:'rotate(18deg)' }} />
-                    <div style={{ position:'absolute', bottom:'6px', left:'-1px', width:'17px', height:'15px', background:'#7c726a', borderRadius:'50%' }} />
-                    <div style={{ position:'absolute', bottom:'17px', left:'1px', width:0, height:0, borderLeft:'4px solid transparent', borderRight:'4px solid transparent', borderBottom:'7px solid #7c726a' }} />
-                    <div style={{ position:'absolute', bottom:'17px', left:'9px', width:0, height:0, borderLeft:'4px solid transparent', borderRight:'4px solid transparent', borderBottom:'7px solid #7c726a' }} />
-                    <div style={{ position:'absolute', bottom:'11px', left:'2px', width:'5px', height:'2px', borderBottom:'1.5px solid #3a332e', borderRadius:'0 0 4px 4px' }} />
-                    <div style={{ position:'absolute', bottom:'13px', left:'20px', width:'14px', height:'2px', background:'rgba(58,51,46,.4)', borderRadius:'2px', transform:'rotate(-8deg)' }} />
-                    <div style={{ position:'absolute', bottom:'9px', left:'22px', width:'16px', height:'2px', background:'rgba(58,51,46,.34)', borderRadius:'2px', transform:'rotate(-4deg)' }} />
+                {/* floor items – desk with open book + Jiji */}
+                <div style={{ position:'absolute', left:0, right:0, bottom:'3%', height:'90px', pointerEvents:'none' }}>
+                  <div style={{ position:'absolute', left:'50%', bottom:'1px', transform:'translateX(-38px)', width:'160px', height:'10px', borderRadius:'50%', background:'rgba(0,0,0,.38)', filter:'blur(5px)' }} />
+
+                  {/* desk + jiji side by side, centered */}
+                  <div style={{ position:'absolute', left:'50%', bottom:'18px', transform:'translateX(-70px)', display:'flex', alignItems:'flex-end', gap:'2px' }}>
+
+                    {/* desk */}
+                    <div style={{ position:'relative', width:'100px', flexShrink:0 }}>
+                      <div style={{ display:'flex', justifyContent:'space-between', padding:'0 8px' }}>
+                        <div style={{ width:'5px', height:'18px', background:'#4a3520', borderRadius:'0 0 2px 2px' }} />
+                        <div style={{ width:'5px', height:'18px', background:'#4a3520', borderRadius:'0 0 2px 2px' }} />
+                      </div>
+                      <div style={{ position:'relative', height:'7px', background:'linear-gradient(180deg,#7a5c3a,#5a3f22)', borderRadius:'3px', boxShadow:'0 3px 8px rgba(0,0,0,.4)', marginTop:'-2px' }}>
+                        <div style={{ position:'absolute', top:0, left:0, right:0, height:'2px', background:'rgba(255,255,255,.12)', borderRadius:'3px 3px 0 0' }} />
+                      </div>
+                      {/* open book – raised higher on desk */}
+                      <div style={{ position:'absolute', bottom:'14px', left:'50%', transform:'translateX(-50%)', width:'60px', height:'34px', pointerEvents: floorBook ? 'auto' : 'none' }}>
+                        <button onClick={() => floorBook && setBook(floorBook)} style={{ background:'none', border:'none', padding:0, cursor: floorBook ? 'pointer' : 'default', width:'100%', height:'100%', display:'flex', alignItems:'flex-end' }}>
+                          <div style={{ flex:1, height:'30px', background:'linear-gradient(170deg,#d4c8a8,#b8a882)', borderRadius:'2px 0 0 1px', boxShadow:'-2px 2px 5px rgba(0,0,0,.4)', transformOrigin:'right bottom', transform:'rotate(-6deg)', borderLeft:'2px solid #8a7248', borderTop:'1px solid #9a8258' }} />
+                          <div style={{ width:'4px', height:'32px', background:'linear-gradient(90deg,#6a5030,#c8a868,#6a5030)', flexShrink:0, boxShadow:'0 2px 4px rgba(0,0,0,.4)' }} />
+                          <div style={{ flex:1, height:'30px', background:'linear-gradient(190deg,#ccc0a0,#b0a47e)', borderRadius:'0 2px 1px 0', boxShadow:'2px 2px 5px rgba(0,0,0,.3)', transformOrigin:'left bottom', transform:'rotate(6deg)', borderRight:'2px solid #8a7248', borderTop:'1px solid #9a8258' }} />
+                        </button>
+                      </div>
+                      {/* book title */}
+                      {floorBook && (
+                        <div style={{ position:'absolute', bottom:'-18px', left:0, right:0, textAlign:'center', fontFamily:'var(--serif)', fontSize:'9.5px', letterSpacing:'.06em', color:'var(--dim,#9b9081)', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis', pointerEvents:'none' }}>{floorBook.title}</div>
+                      )}
+                    </div>
+
+                    {/* Jiji */}
+                    <div style={{ position:'relative', width:'40px', height:'54px', flexShrink:0 }}>
+                      <div style={{ position:'absolute', bottom:'2px', right:'-6px', width:'10px', height:'24px', borderRight:'4px solid #1a1a1a', borderBottom:'4px solid #1a1a1a', borderRadius:'0 0 12px 0' }} />
+                      <div style={{ position:'absolute', bottom:'26px', right:'-8px', width:'9px', height:'9px', borderRight:'4px solid #1a1a1a', borderTop:'4px solid #1a1a1a', borderRadius:'0 9px 0 0' }} />
+                      <div style={{ position:'absolute', bottom:0, left:'6px', width:'26px', height:'28px', background:'#1a1a1a', borderRadius:'45% 45% 38% 38%', boxShadow:'0 2px 6px rgba(0,0,0,.5)' }} />
+                      <div style={{ position:'absolute', bottom:'8px', left:'14px', width:'7px', height:'9px', background:'rgba(255,255,255,.13)', borderRadius:'50%' }} />
+                      <div style={{ position:'absolute', bottom:'24px', left:'7px', width:'26px', height:'26px', background:'#1a1a1a', borderRadius:'50%', boxShadow:'0 2px 6px rgba(0,0,0,.5)' }}>
+                        <div style={{ position:'absolute', top:'-8px', left:'2px', width:0, height:0, borderLeft:'5px solid transparent', borderRight:'5px solid transparent', borderBottom:'11px solid #1a1a1a' }} />
+                        <div style={{ position:'absolute', top:'-8px', right:'2px', width:0, height:0, borderLeft:'5px solid transparent', borderRight:'5px solid transparent', borderBottom:'11px solid #1a1a1a' }} />
+                        <div style={{ position:'absolute', top:'7px', left:'2px', width:'9px', height:'10px', background:'#d4a820', borderRadius:'50%', boxShadow:'0 0 3px rgba(212,168,32,.6)' }}>
+                          <div style={{ position:'absolute', top:'2px', left:'2px', width:'5px', height:'6px', background:'#111', borderRadius:'50%' }} />
+                          <div style={{ position:'absolute', top:'1px', left:'1px', width:'2px', height:'2px', background:'rgba(255,255,255,.75)', borderRadius:'50%' }} />
+                        </div>
+                        <div style={{ position:'absolute', top:'7px', right:'2px', width:'9px', height:'10px', background:'#d4a820', borderRadius:'50%', boxShadow:'0 0 3px rgba(212,168,32,.6)' }}>
+                          <div style={{ position:'absolute', top:'2px', left:'2px', width:'5px', height:'6px', background:'#111', borderRadius:'50%' }} />
+                          <div style={{ position:'absolute', top:'1px', left:'1px', width:'2px', height:'2px', background:'rgba(255,255,255,.75)', borderRadius:'50%' }} />
+                        </div>
+                        <div style={{ position:'absolute', top:'18px', left:'50%', transform:'translateX(-50%)', width:'3px', height:'2px', background:'#e07880', borderRadius:'50%' }} />
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
