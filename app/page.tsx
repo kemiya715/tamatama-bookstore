@@ -315,13 +315,13 @@ export default function TamatamaShoten() {
                 <div style={{ position:'absolute', left:0, top:0, right:0, height:'62%', background:'linear-gradient(180deg,#4a3623 0%,#34251700 100%),linear-gradient(180deg,#3c2c1b 0%,#2a1d12 100%)' }} />
                 <div style={{ position:'absolute', left:0, top:'62%', right:0, height:'2px', background:'rgba(0,0,0,.4)', boxShadow:'0 -1px 0 rgba(255,255,255,.04)' }} />
 
-                <div style={{ position:'absolute', right:'44px', top:'7%', width:'80px', height:'94px', borderRadius:'2px', background:'linear-gradient(180deg,#9cc8e6 0%,#bcdcef 52%,#e4f1f6 100%)', boxShadow:'0 0 30px 12px rgba(168,206,232,.3), inset 0 0 0 3px #4a3826', overflow:'hidden' }}>
+                <div style={{ position:'absolute', right:'44px', top:'7%', width:'64px', height:'76px', borderRadius:'2px', background:'linear-gradient(180deg,#9cc8e6 0%,#bcdcef 52%,#e4f1f6 100%)', boxShadow:'0 0 30px 12px rgba(168,206,232,.3), inset 0 0 0 3px #4a3826', overflow:'hidden' }}>
                   <div style={{ position:'absolute', left:'8px', top:'18px', width:'32px', height:'11px', background:'rgba(255,255,255,.92)', borderRadius:'8px', filter:'blur(1.5px)' }} />
                   <div style={{ position:'absolute', right:'7px', top:'42px', width:'26px', height:'9px', background:'rgba(255,255,255,.82)', borderRadius:'7px', filter:'blur(1.5px)' }} />
                   <div style={{ position:'absolute', left:'50%', top:0, bottom:0, width:'3px', background:'#4a3826', transform:'translateX(-50%)' }} />
                   <div style={{ position:'absolute', top:'50%', left:0, right:0, height:'3px', background:'#4a3826', transform:'translateY(-50%)' }} />
                 </div>
-                <div style={{ position:'absolute', left:'44px', top:'7%', width:'80px', height:'94px', borderRadius:'2px', background:'linear-gradient(180deg,#9cc8e6 0%,#bcdcef 52%,#e4f1f6 100%)', boxShadow:'0 0 30px 12px rgba(168,206,232,.3), inset 0 0 0 3px #4a3826', overflow:'hidden' }}>
+                <div style={{ position:'absolute', left:'44px', top:'7%', width:'64px', height:'76px', borderRadius:'2px', background:'linear-gradient(180deg,#9cc8e6 0%,#bcdcef 52%,#e4f1f6 100%)', boxShadow:'0 0 30px 12px rgba(168,206,232,.3), inset 0 0 0 3px #4a3826', overflow:'hidden' }}>
                   <div style={{ position:'absolute', left:'8px', top:'18px', width:'32px', height:'11px', background:'rgba(255,255,255,.92)', borderRadius:'8px', filter:'blur(1.5px)' }} />
                   <div style={{ position:'absolute', right:'7px', top:'42px', width:'26px', height:'9px', background:'rgba(255,255,255,.82)', borderRadius:'7px', filter:'blur(1.5px)' }} />
                   <div style={{ position:'absolute', left:'50%', top:0, bottom:0, width:'3px', background:'#4a3826', transform:'translateX(-50%)' }} />
@@ -348,8 +348,8 @@ export default function TamatamaShoten() {
                 <div style={{ position:'absolute', left:0, bottom:0, right:0, height:'3px', background:'rgba(255,255,255,.05)' }} />
                 <div style={{ position:'absolute', left:'50%', bottom:'6%', transform:'translateX(-50%)', width:'340px', height:'150px', background:'radial-gradient(closest-side, rgba(226,180,108,.18) 0%, transparent 80%)' }} />
 
-                <div style={{ position:'absolute', left:'24px', right:'24px', bottom:'23.5%', height:'18px', background:'radial-gradient(closest-side, rgba(0,0,0,.5), transparent 78%)', filter:'blur(4px)', zIndex:1 }} />
-                <div style={{ position:'absolute', left:'12px', right:'12px', bottom:'24%', display:'flex', gap:'6px', alignItems:'flex-end', justifyContent:'center' }}>
+                <div style={{ position:'absolute', left:'24px', right:'24px', bottom:'27.5%', height:'18px', background:'radial-gradient(closest-side, rgba(0,0,0,.5), transparent 78%)', filter:'blur(4px)', zIndex:1 }} />
+                <div style={{ position:'absolute', left:'12px', right:'12px', bottom:'28%', display:'flex', gap:'6px', alignItems:'flex-end', justifyContent:'center' }}>
 
                   <button onClick={() => { setCatKey('keeper'); go('category'); }} style={{ flex:1, maxWidth:'90px', background:'none', border:'none', padding:0, cursor:'pointer' }}>
                     <div style={{ height:'22px', display:'flex', alignItems:'flex-end', justifyContent:'center' }}>
@@ -417,7 +417,7 @@ export default function TamatamaShoten() {
                 </div>
 
                 {/* floor items – desk with open book + Jiji */}
-                <div style={{ position:'absolute', left:0, right:0, bottom:'3%', height:'90px', pointerEvents:'none' }}>
+                <div style={{ position:'absolute', left:0, right:0, bottom:'7%', height:'90px', pointerEvents:'none' }}>
                   <div style={{ position:'absolute', left:'50%', bottom:'1px', transform:'translateX(-38px)', width:'160px', height:'10px', borderRadius:'50%', background:'rgba(0,0,0,.38)', filter:'blur(5px)' }} />
 
                   {/* desk + jiji side by side, centered */}
@@ -440,10 +440,7 @@ export default function TamatamaShoten() {
                           <div style={{ flex:1, height:'30px', background:'linear-gradient(190deg,#ccc0a0,#b0a47e)', borderRadius:'0 2px 1px 0', boxShadow:'2px 2px 5px rgba(0,0,0,.3)', transformOrigin:'left bottom', transform:'rotate(6deg)', borderRight:'2px solid #8a7248', borderTop:'1px solid #9a8258' }} />
                         </button>
                       </div>
-                      {/* book title */}
-                      {floorBook && (
-                        <div style={{ position:'absolute', bottom:'-18px', left:0, right:0, textAlign:'center', fontFamily:'var(--serif)', fontSize:'9.5px', letterSpacing:'.06em', color:'var(--dim,#9b9081)', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis', pointerEvents:'none' }}>{floorBook.title}</div>
-                      )}
+                      <div style={{ position:'absolute', bottom:'-20px', left:0, right:0, textAlign:'center', fontFamily:'var(--serif)', fontSize:'13px', letterSpacing:'.16em', color:'var(--ink,#ece3d4)', pointerEvents:'none' }}>今日の本</div>
                     </div>
 
                     {/* Jiji */}
