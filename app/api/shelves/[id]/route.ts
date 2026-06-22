@@ -109,8 +109,9 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   }
 
   const books = rawBooks.map((b, i) => {
-    const amazonUrl = b.isbn
-      ? `https://www.amazon.co.jp/s?k=${b.isbn}&i=stripbooks${AMAZON_TAG ? `&tag=${AMAZON_TAG}` : ''}`
+    const isbn10 = b.isbn ? isbn13to10(b.isbn) : null;
+    const amazonUrl = isbn10
+      ? `https://www.amazon.co.jp/dp/${isbn10}${AMAZON_TAG ? `?tag=${AMAZON_TAG}` : ''}`
       : `https://www.amazon.co.jp/s?k=${encodeURIComponent(b.title)}&i=stripbooks${AMAZON_TAG ? `&tag=${AMAZON_TAG}` : ''}`;
     const rakutenUrl = b.isbn
       ? `https://books.rakuten.co.jp/rb/${b.isbn}/${RAKUTEN_TAG ? `?rafId=${RAKUTEN_TAG}` : ''}`
